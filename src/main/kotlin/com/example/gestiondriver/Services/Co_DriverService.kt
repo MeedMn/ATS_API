@@ -17,6 +17,7 @@ class Co_DriverService (@Autowired val coDriverService : Co_DriverRepository ) :
             it.firstname = coDriver.firstname
             it.address = coDriver.address
             it.age = coDriver.age
+            it.code = coDriver.code
             it.numberphone = coDriver.numberphone
             it.licence = coDriver.licence
             return coDriverService.save(it)

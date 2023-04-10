@@ -13,6 +13,8 @@ open class Driver  (
     open var firstname:String,
     open var address:String,
     open var age:Int,
+    @Column(unique = true)
+    open var code:String,
     open var numberphone:String,
     open var licence:String
 )

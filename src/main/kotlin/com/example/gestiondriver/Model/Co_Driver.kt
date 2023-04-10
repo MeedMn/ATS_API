@@ -10,6 +10,8 @@ class Co_Driver
     override var firstname:String,
     override var address:String,
     override var age:Int,
+    @Column(unique = true)
+    override var code:String,
     override var numberphone:String,
     override var licence:String
-            ): Driver(id,lastname,firstname, address, age, numberphone, licence)
+            ): Driver(id,lastname,firstname, address,age, code , numberphone, licence)

@@ -19,6 +19,7 @@ class DrvierService (@Autowired val driverRepository: DriverRepository) : Driver
             it.firstname = driver.firstname;
             it.address = driver.address;
             it.age = driver.age;
+            it.code = driver.code
             it.numberphone = driver.numberphone;
             it.licence = driver.licence;
             return driverRepository.save(it);
