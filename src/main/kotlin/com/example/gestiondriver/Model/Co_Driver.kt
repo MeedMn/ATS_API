@@ -6,10 +6,10 @@ import jakarta.persistence.*
 class Co_Driver
     (
     override var id:Int,
-    override var nom:String,
-    override var prenom:String,
+    override var lastname:String,
+    override var firstname:String,
     override var address:String,
     override var age:Int,
-    override var tele:String,
-    override var permis:String
-            ): Driver(id,nom,prenom,address,age ,tele,permis)
+    override var numberphone:String,
+    override var licence:String
+            ): Driver(id,lastname,firstname, address, age, numberphone, licence)

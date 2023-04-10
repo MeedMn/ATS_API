@@ -1,7 +1,7 @@
 package com.example.gestiondriver.Repository
 
-import com.example.gestiondriver.Model.Children
+import com.example.gestiondriver.Model.Student
 import org.springframework.data.jpa.repository.JpaRepository
 
-interface ChildrenRepository : JpaRepository<Children,Int> {
+interface StudentRepository : JpaRepository<Student,Int> {
 }

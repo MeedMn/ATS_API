@@ -9,11 +9,11 @@ class Parent (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id:Int,
-    var nom:String,
-    var prenom:String,
-    var numero:String,
+    var lastname:String,
+    var firstname:String,
+    var numberphone:String,
     var address:String,
     @OneToMany(mappedBy = "parent", cascade = [(CascadeType.ALL)], fetch = FetchType.LAZY)
-    var children: List<Children>
+    var student: List<Student>
 
 )

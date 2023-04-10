@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class DrvierImplementation (@Autowired val driverRepository: DriverRepository) : DriverInterface {
+class DrvierService (@Autowired val driverRepository: DriverRepository) : DriverInterface {
 
 
     override fun CreateDriver(driver: Driver): Driver {
@@ -14,13 +14,13 @@ class DrvierImplementation (@Autowired val driverRepository: DriverRepository) :
     }
 
     override fun UpdateDriver(id: Int, driver: Driver): Driver {
-        return driverRepository.getById(id).let {
-            it.nom = driver.nom;
-            it.prenom = driver.prenom;
+        return driverRepository.findById(id).get().let {
+            it.lastname = driver.lastname;
+            it.firstname = driver.firstname;
             it.address = driver.address;
             it.age = driver.age;
-            it.tele = driver.tele;
-            it.permis = driver.permis;
+            it.numberphone = driver.numberphone;
+            it.licence = driver.licence;
             return driverRepository.save(it);
         }
     }

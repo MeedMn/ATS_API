@@ -8,9 +8,9 @@ class Transport (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id:Int,
-    var matricule:String,
-    var carburant:String,
-    var nombre_de_place:Int,
+    var registration_number:String,
+    var fuel:String,
+    var seat_number:Int,
     @OneToOne
     @JoinColumn(name = "driver")
     val id_driver:Driver,

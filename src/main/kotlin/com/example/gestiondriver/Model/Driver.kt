@@ -9,10 +9,10 @@ open class Driver  (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     open var id:Int,
-    open var nom:String,
-    open var prenom:String,
+    open var lastname:String,
+    open var firstname:String,
     open var address:String,
     open var age:Int,
-    open var tele:String,
-    open var permis:String
+    open var numberphone:String,
+    open var licence:String
 )

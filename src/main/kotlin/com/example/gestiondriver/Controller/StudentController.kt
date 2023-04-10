@@ -1,7 +1,7 @@
 package com.example.gestiondriver.Controller
 
-import com.example.gestiondriver.Model.Children
-import com.example.gestiondriver.Services.ChildrenService
+import com.example.gestiondriver.Model.Student
+import com.example.gestiondriver.Services.StudentService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -16,18 +16,18 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/")
 @CrossOrigin
-class ChildrenController (@Autowired var childrenService: ChildrenService){
+class StudentController (@Autowired var childrenService: StudentService){
     @PostMapping("createChildren")
-    fun createChildren(@RequestBody children: Children) : Children{
-        return childrenService.createChildren(children)
+    fun createChildren(@RequestBody student: Student) : Student{
+        return childrenService.createChildren(student)
     }
     @GetMapping("childrens")
-    fun selectChildren():List<Children>{
+    fun selectChildren():List<Student>{
         return childrenService.selectChildren()
     }
     @PutMapping("updateChildren/{id}")
-    fun updateChildren (@PathVariable id:Int,@RequestBody children: Children) : Children {
-        return childrenService.updateChildren(id,children)
+    fun updateChildren (@PathVariable id:Int,@RequestBody student: Student) : Student {
+        return childrenService.updateChildren(id,student)
     }
     @DeleteMapping("deleteChildren/{id}")
     fun deleteChildren (@PathVariable id:Int) : String {

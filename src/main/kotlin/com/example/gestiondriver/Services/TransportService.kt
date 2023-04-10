@@ -13,9 +13,9 @@ class TransportService (@Autowired val TransportRepo : TransportRepository): Tra
 
     override fun UpdateTransport(id: Int, transport: Transport): Transport {
         return TransportRepo.getById(id).let {
-            it.matricule = transport.matricule
-            it.carburant = transport.carburant
-            it.nombre_de_place= transport.nombre_de_place
+            it.registration_number = transport.registration_number
+            it.fuel = transport.fuel
+            it.seat_number= transport.seat_number
             it.id_driver.id= transport.id_driver.id
             it.id_CoDriver.id = transport.id_CoDriver.id
             return TransportRepo.save(it)

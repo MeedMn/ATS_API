@@ -13,12 +13,12 @@ class Co_DriverService (@Autowired val coDriverService : Co_DriverRepository ) :
 
     override fun UpdateCoDriver(id: Int, coDriver: Co_Driver): Co_Driver {
         return coDriverService.getById(id).let {
-            it.nom = coDriver.nom
-            it.prenom = coDriver.prenom
+            it.lastname = coDriver.lastname
+            it.firstname = coDriver.firstname
             it.address = coDriver.address
             it.age = coDriver.age
-            it.tele = coDriver.tele
-            it.permis = coDriver.permis
+            it.numberphone = coDriver.numberphone
+            it.licence = coDriver.licence
             return coDriverService.save(it)
         }
     }
