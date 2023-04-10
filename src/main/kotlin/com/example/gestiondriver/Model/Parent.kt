@@ -13,8 +13,7 @@ class Parent (
     var prenom:String,
     var numero:String,
     var address:String,
-    @OneToMany
-    @JoinColumn(name = "Parent")
+    @OneToMany(mappedBy = "parent", cascade = [(CascadeType.ALL)], fetch = FetchType.LAZY)
     var children: List<Children>
 
 )

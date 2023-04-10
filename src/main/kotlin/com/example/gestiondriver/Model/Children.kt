@@ -11,5 +11,8 @@ class Children (
     var nom:String,
     var prenom:String,
     var niveau_scholaire:String,
-    var age:Int
+    var age:Int,
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parentChildren")
+    var parent: Parent
 )
