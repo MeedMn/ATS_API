@@ -8,4 +8,5 @@ interface DriverInterface {
     fun ReadSingleDriver(id:Int) : Driver;
     fun SelectDrivers () : List<Driver>;
     fun DeleteDriver(id:Int) : String;
+    fun getDriverByCode(code:String) : Driver
 }

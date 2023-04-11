@@ -40,4 +40,9 @@ class Co_DriverService (@Autowired val coDriverService : Co_DriverRepository ) :
             return "Error of Deleting"
         }
     }
+
+    override fun getCoDriverByCode(code: String): Co_Driver {
+        println("Co-Driver : "+coDriverService.getByCode(code).firstname)
+        return coDriverService.getByCode(code)
+    }
 }

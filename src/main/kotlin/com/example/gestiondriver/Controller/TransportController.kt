@@ -1,21 +1,23 @@
 package com.example.gestiondriver.Controller
 import com.example.gestiondriver.Model.Transport
+import com.example.gestiondriver.Services.Co_DriverService
+import com.example.gestiondriver.Services.DrvierService
 import com.example.gestiondriver.Services.TransportService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.DeleteMapping
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
+
 @RestController
 @RequestMapping("/")
-class TransportController (@Autowired var transportService: TransportService) {
-    @PostMapping("createTransport")
-    fun CreateTransport (@RequestBody transport: Transport) : Transport{
-        return transportService.CreateTransport(transport)
+@CrossOrigin
+class TransportController (@Autowired var transportService: TransportService,@Autowired var codriverService: Co_DriverService,@Autowired var driverService: DrvierService) {
+    @PostMapping("createTransport/{codeDriver}/{codeCoDriver}")
+    fun CreateTransport (@PathVariable codeDriver:String,@PathVariable codeCoDriver:String,@RequestBody transport: Transport) : Transport{
+        println("added")
+        transport.let {
+            it.id_CoDriver = codriverService.getCoDriverByCode(codeCoDriver)
+            it.id_driver = driverService.getDriverByCode(codeDriver)
+            return transport
+        }
     }
     @GetMapping("transports")
     fun SelectTransport() : List<Transport> {

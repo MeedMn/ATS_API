@@ -34,8 +34,12 @@ class DriverController (@Autowired val driverService: DriverInterface){
     public fun DeleteDriver(@PathVariable id:Int) : String{
         return driverService.DeleteDriver(id);
     }
-    @GetMapping("driver/{id}")
+    @GetMapping("driver/id/{id}")
     public fun ReadSingle(@PathVariable id:Int) : Driver{
         return driverService.ReadSingleDriver(id);
+    }
+    @GetMapping("driver/code/{code}")
+    public fun getDriverByCode(@PathVariable code: String): Driver {
+        return driverService.getDriverByCode(code)
     }
 }

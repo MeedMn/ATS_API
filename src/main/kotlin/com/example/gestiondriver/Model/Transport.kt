@@ -13,8 +13,8 @@ class Transport (
     var seat_number:Int,
     @OneToOne
     @JoinColumn(name = "driver")
-    val id_driver:Driver,
+    var id_driver:Driver,
     @OneToOne
     @JoinColumn(name="codriver")
-    val id_CoDriver:Co_Driver
+    var id_CoDriver:Co_Driver
 )

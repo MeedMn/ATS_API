@@ -42,4 +42,9 @@ class DrvierService (@Autowired val driverRepository: DriverRepository) : Driver
             return "Error in deleting";
        }
     }
+
+    override fun getDriverByCode(code: String): Driver {
+        println("Driver : "+driverRepository.getByCode(code).firstname)
+        return driverRepository.getByCode(code)
+    }
 }

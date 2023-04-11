@@ -1,5 +1,6 @@
 package com.example.gestiondriver.Controller
 import com.example.gestiondriver.Model.Co_Driver
+import com.example.gestiondriver.Model.Driver
 import com.example.gestiondriver.Services.Co_DriverService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
@@ -25,8 +26,12 @@ class CoDriverController (@Autowired var coDriverservice: Co_DriverService) {
     fun DeleteCoDriver(@PathVariable id : Int) : String{
         return coDriverservice.DeleteCoDriver(id)
     }
-    @GetMapping("coDriver/{id}")
+    @GetMapping("coDriver/id/{id}")
     fun SelectById(@PathVariable id : Int) : Co_Driver {
         return coDriverservice.ReadSingle(id)
+    }
+    @GetMapping("coDriver/code/{code}")
+    public fun getCoDriverByCode(@PathVariable code: String): Co_Driver {
+        return coDriverservice.getCoDriverByCode(code)
     }
 }
