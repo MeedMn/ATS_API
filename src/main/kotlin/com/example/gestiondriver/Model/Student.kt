@@ -11,8 +11,5 @@ class Student (
     var lastname:String,
     var firstname:String,
     var grade:String,
-    var age:Int,
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "parentChildren")
-    var parent: Parent
+    var age:Int
 )

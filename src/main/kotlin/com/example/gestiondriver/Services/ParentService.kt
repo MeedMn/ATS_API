@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class ParentService (@Autowired var parentRepository: ParentRepository) : ParentInterfaceService {
-    @Autowired
-    lateinit var  studentRepository : StudentRepository ;
-
+class ParentService (@Autowired var parentRepository: ParentRepository,@Autowired var studentRepository: StudentRepository) : ParentInterfaceService {
 
     override fun createParent(parent: Parent): Parent {
         return parentRepository.save(parent)
@@ -41,11 +38,13 @@ class ParentService (@Autowired var parentRepository: ParentRepository) : Parent
         return parentRepository.findAll()
     }
 
-    override fun affectChildToParent(idParent: Int, idChild: Int) {
+    override fun affectChildToParent(idChild: Int, idParent: Int) {
         var parent:Parent = parentRepository.findById(idParent).get();
-        var student: Student = studentRepository.findById(idChild).get();
-        if(parent != null && student != null){
-            parent.student.toMutableList().add(student)
+        var std: Student = studentRepository.findById(idChild).get();
+
+        if(parent != null && std != null){
+
+            parent.student += std
             parentRepository.save(parent);
         }
     }

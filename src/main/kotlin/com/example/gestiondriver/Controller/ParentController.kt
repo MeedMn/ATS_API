@@ -24,7 +24,7 @@ class ParentController (@Autowired var parentService: ParentService) {
     }
 
     @GetMapping("parents")
-    fun selectParents() : List<Parent> {
+    fun selectParents () : List<Parent> {
         return parentService.selectParent();
     }
 
@@ -38,4 +38,13 @@ class ParentController (@Autowired var parentService: ParentService) {
         return parentService.deleteParent(id);
     }
 
+    @PostMapping("affectChildToParent/{idc}/{idp}")
+    fun affectChildToParent(@PathVariable idc:Int,@PathVariable idp:Int) : String{
+        try {
+            parentService.affectChildToParent(idc,idp)
+            return "Relation setted"
+        }catch (e:Exception){
+            return "Relation not setted | Error : "+e.stackTrace
+        }
+    }
 }

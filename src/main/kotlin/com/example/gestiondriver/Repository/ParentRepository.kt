@@ -11,4 +11,10 @@ import org.springframework.stereotype.Repository
 interface ParentRepository : JpaRepository<Parent,Int>  {
     @Query(value = "select pr from Parent pr where pr.id=:id")
     fun getChilds (@Param ("id") id:Int) : List<Student>
+
+    @Query(value = "select p from Parent p")
+    fun getParent() : List<Parent>
+
+
+
 }

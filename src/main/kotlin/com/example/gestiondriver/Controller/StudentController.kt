@@ -17,19 +17,19 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/")
 @CrossOrigin
 class StudentController (@Autowired var childrenService: StudentService){
-    @PostMapping("createChildren")
+    @PostMapping("createStudent")
     fun createChildren(@RequestBody student: Student) : Student{
         return childrenService.createChildren(student)
     }
-    @GetMapping("childrens")
+    @GetMapping("students")
     fun selectChildren():List<Student>{
         return childrenService.selectChildren()
     }
-    @PutMapping("updateChildren/{id}")
+    @PutMapping("updateStudent/{id}")
     fun updateChildren (@PathVariable id:Int,@RequestBody student: Student) : Student {
         return childrenService.updateChildren(id,student)
     }
-    @DeleteMapping("deleteChildren/{id}")
+    @DeleteMapping("deleteStudent/{id}")
     fun deleteChildren (@PathVariable id:Int) : String {
         return childrenService.deleteChildren(id)
     }

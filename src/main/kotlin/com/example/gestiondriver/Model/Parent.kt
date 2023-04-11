@@ -13,7 +13,10 @@ class Parent (
     var firstname:String,
     var numberphone:String,
     var address:String,
-    @OneToMany(mappedBy = "parent", cascade = [(CascadeType.ALL)], fetch = FetchType.LAZY)
-    var student: List<Student>
+    @OneToMany
+    @JoinColumn(name="id_parent")
+    var student: List<Student> = emptyList()
 
-)
+) {
+
+}
