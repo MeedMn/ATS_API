@@ -31,7 +31,7 @@ class DrvierService (@Autowired val driverRepository: DriverRepository) : Driver
     }
 
     override fun SelectDrivers(): List<Driver> {
-        return driverRepository.findAll();
+        return driverRepository.getByDtype("Driver");
     }
 
     override fun DeleteDriver(id: Int): String {

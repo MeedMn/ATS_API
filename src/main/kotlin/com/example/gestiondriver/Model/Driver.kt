@@ -5,16 +5,18 @@ import jakarta.persistence.*
 @Inheritance
 @Entity
 @Table(name="driver")
-open class Driver  (
+open class Driver{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    open var id:Int,
-    open var lastname:String,
-    open var firstname:String,
-    open var address:String,
-    open var age:Int,
+    open var id:Int?=null
+    open var lastname:String?=null
+    open var firstname:String?=null
+    open var address:String?=null
+    open var age:Int?=null
     @Column(unique = true)
-    open var code:String,
-    open var numberphone:String,
-    open var licence:String
-)
+    open var code:String?=null
+    open var numberphone:String?=null
+    open var licence:String?=null
+    @Column(insertable=false, updatable=false)
+    open var dtype:String?=null
+}
