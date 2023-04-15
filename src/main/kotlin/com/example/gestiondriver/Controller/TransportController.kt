@@ -1,4 +1,6 @@
 package com.example.gestiondriver.Controller
+import com.example.gestiondriver.Model.Co_Driver
+import com.example.gestiondriver.Model.Driver
 import com.example.gestiondriver.Model.Transport
 import com.example.gestiondriver.Services.Co_DriverService
 import com.example.gestiondriver.Services.DrvierService
@@ -10,14 +12,10 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/")
 @CrossOrigin
 class TransportController (@Autowired var transportService: TransportService,@Autowired var codriverService: Co_DriverService,@Autowired var driverService: DrvierService) {
-    @PostMapping("createTransport/{codeDriver}/{codeCoDriver}")
-    fun CreateTransport (@PathVariable codeDriver:String,@PathVariable codeCoDriver:String,@RequestBody transport: Transport) : Transport{
-        println("added")
-        transport.let {
-            it.id_CoDriver = codriverService.getCoDriverByCode(codeCoDriver)
-            it.id_driver = driverService.getDriverByCode(codeDriver)
-            return transport
-        }
+    @PostMapping("createTransport")
+    fun CreateTransport(@RequestBody transport: Transport) : Transport{
+        println(transport.registration_number)
+        return transportService.CreateTransport(transport)
     }
     @GetMapping("transports")
     fun SelectTransport() : List<Transport> {
