@@ -13,8 +13,8 @@ class Transport (
     var seat_number:Int,
     @OneToOne
     @JoinColumn(name = "driver")
-    var id_driver:Driver,
+    var id_driver:Driver?=null,
     @OneToOne
     @JoinColumn(name="codriver")
-    var id_CoDriver:Co_Driver
+    var id_CoDriver:Co_Driver?=null
 )

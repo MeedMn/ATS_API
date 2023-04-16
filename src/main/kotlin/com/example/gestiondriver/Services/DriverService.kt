@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class DrvierService (@Autowired val driverRepository: DriverRepository) : DriverInterface {
+class DriverService (@Autowired val driverRepository: DriverRepository) : DriverInterface {
 
 
     override fun CreateDriver(driver: Driver): Driver {

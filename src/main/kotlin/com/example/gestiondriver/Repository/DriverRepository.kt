@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository
 interface DriverRepository : JpaRepository<Driver,Int> {
     fun getByCode(code : String) : Driver
     fun getByDtype(dtype:String) : List<Driver>
+
 }

@@ -25,7 +25,7 @@ class Co_DriverService (@Autowired val coDriverService : Co_DriverRepository ) :
     }
 
     override fun ReadAll(): List<Co_Driver> {
-        return coDriverService.findAll()
+        return coDriverService.getByDtype("Co_Driver")
     }
 
     override fun ReadSingle(id: Int): Co_Driver {

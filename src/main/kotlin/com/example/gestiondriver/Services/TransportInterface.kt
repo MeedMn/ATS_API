@@ -9,4 +9,5 @@ interface TransportInterface{
     fun ReadAll() : List<Transport>
     fun ReadSingle(id : Int) : Transport
     fun DeleteTransport(id : Int) : String
+    fun affectDriverCodriverToTransport(idTransport: Int,idDriver : Int,idCodriver:Int)
 }

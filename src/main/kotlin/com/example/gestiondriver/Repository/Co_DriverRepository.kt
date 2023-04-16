@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface Co_DriverRepository : JpaRepository<Co_Driver,Int> {
     fun getByCode(code : String) : Co_Driver
+    fun getByDtype (dtype:String) : List<Co_Driver>
 }
