@@ -21,6 +21,8 @@ class ParentService (@Autowired var parentRepository: ParentRepository,@Autowire
             it.numberphone = parent.numberphone;
             it.address = parent.address
             it.student= parent.student
+            it.longitude = parent.longitude
+            it.latitude = parent.latitude
             return parentRepository.save(it);
         }
     }

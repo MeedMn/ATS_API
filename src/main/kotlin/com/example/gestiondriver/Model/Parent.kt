@@ -13,6 +13,8 @@ class Parent (
     var firstname:String,
     var numberphone:String,
     var address:String,
+    var longitude:String,
+    var latitude:String,
     @OneToMany
     @JoinColumn(name="id_parent")
     var student: List<Student> = emptyList()
