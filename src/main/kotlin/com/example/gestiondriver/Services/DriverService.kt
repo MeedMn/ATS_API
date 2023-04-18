@@ -22,6 +22,8 @@ class DriverService (@Autowired val driverRepository: DriverRepository) : Driver
             it.code = driver.code
             it.numberphone = driver.numberphone;
             it.licence = driver.licence;
+            it.latitude = driver.latitude
+            it.longitude = driver.longitude
             return driverRepository.save(it);
         }
     }

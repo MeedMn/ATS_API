@@ -50,9 +50,6 @@ class TransportService (@Autowired val TransportRepo : TransportRepository,@Auto
         if(driver != null && coDriver != null && transport !=null){
             transport.let { it.id_driver = driver }
             transport.let{ it.id_CoDriver = coDriver }
-            println("Driver : "+driver.id)
-            println("CoDriver : "+coDriver.id)
-            println("Transport : Driver : "+transport.id_driver?.id + " | CoDriver : "+transport.id_CoDriver?.id)
             TransportRepo.save(transport)
         }
     }

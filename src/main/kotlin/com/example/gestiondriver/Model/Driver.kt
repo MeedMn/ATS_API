@@ -17,6 +17,8 @@ open class Driver{
     open var code:String?=null
     open var numberphone:String?=null
     open var licence:String?=null
+    open var longitude:String?=null
+    open var latitude:String?=null
     @Column(insertable=false, updatable=false)
     open var dtype:String?=null
 }
