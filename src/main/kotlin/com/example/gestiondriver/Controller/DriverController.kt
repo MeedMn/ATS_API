@@ -2,9 +2,7 @@ package com.example.gestiondriver.Controller
 
 import com.example.gestiondriver.Model.Driver
 import com.example.gestiondriver.Services.DriverInterface
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -17,25 +15,21 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin
+@CrossOrigin(origins = ["http://localhost:3000"])
 class DriverController (@Autowired val driverService: DriverInterface){
     @PostMapping("createDriver")
-    @PreAuthorize("hasRole('ADMIN')")
     public fun CreateDriver(@RequestBody driver:Driver) : Driver{
         return driverService.CreateDriver(driver);
     }
     @GetMapping("drivers")
-
     public fun ReadAll() : List<Driver>{
         return driverService.SelectDrivers();
     }
     @PutMapping("updateDriver/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public fun UpdateDriver(@PathVariable id:Int,@RequestBody driver:Driver):Driver{
         return driverService.UpdateDriver(id,driver);
     }
     @DeleteMapping("deleteDriver/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public fun DeleteDriver(@PathVariable id:Int) : String{
         return driverService.DeleteDriver(id);
     }
