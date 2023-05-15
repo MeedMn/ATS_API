@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
-@CrossOrigin
 class AuthentificationController(private val service: AuthService) {
 
     @PostMapping("/register/{role}")

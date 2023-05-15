@@ -51,5 +51,9 @@ class ParentService (@Autowired var parentRepository: ParentRepository,@Autowire
         }
     }
 
+    override fun getById(idParent: Int): Parent {
+        return parentRepository.findById(idParent).get();
+    }
+
 
 }

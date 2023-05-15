@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*
 class TransportController (@Autowired var transportService: TransportService,@Autowired var codriverService: Co_DriverService,@Autowired var driverService: DriverService) {
     @PostMapping("createTransport")
     fun CreateTransport(@RequestBody transport: Transport) : Transport{
-        println(transport.registration_number)
         return transportService.CreateTransport(transport)
     }
     @GetMapping("transports")
@@ -23,8 +22,8 @@ class TransportController (@Autowired var transportService: TransportService,@Au
     fun UpdateTransport(@PathVariable id: Int,@RequestBody transport: Transport) : Transport{
         return transportService.UpdateTransport(id,transport)
     }
-    @DeleteMapping("deleteTransport")
-    fun DeleteTransport (@RequestBody id : Int) : String {
+    @DeleteMapping("deleteTransport/{id}")
+    fun DeleteTransport (@PathVariable id : Int) : String {
         return transportService.DeleteTransport(id)
     }
     @GetMapping("transport/{id}")

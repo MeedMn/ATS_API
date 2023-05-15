@@ -42,7 +42,6 @@ class Co_DriverService (@Autowired val coDriverService : Co_DriverRepository ) :
     }
 
     override fun getCoDriverByCode(code: String): Co_Driver {
-        println("Co-Driver : "+coDriverService.getByCode(code).firstname)
         return coDriverService.getByCode(code)
     }
 }

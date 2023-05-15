@@ -3,6 +3,7 @@ import com.example.gestiondriver.Model.Co_Driver
 import com.example.gestiondriver.Model.Driver
 import com.example.gestiondriver.Services.Co_DriverService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.annotation.Id
 import org.springframework.web.bind.annotation.*
 import kotlin.contracts.contract
 @RestController
@@ -30,8 +31,11 @@ class CoDriverController (@Autowired var coDriverservice: Co_DriverService) {
     fun SelectById(@PathVariable id : Int) : Co_Driver {
         return coDriverservice.ReadSingle(id)
     }
+
     @GetMapping("coDriver/code/{code}")
-    public fun getCoDriverByCode(@PathVariable code: String): Co_Driver {
-        return coDriverservice.getCoDriverByCode(code)
+    fun getByCode(@PathVariable code :String) : Int?{
+        if(coDriverservice.getCoDriverByCode(code).dtype.equals("Co_Driver"))
+            return coDriverservice.getCoDriverByCode(code).id;
+        return null;
     }
 }

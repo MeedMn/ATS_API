@@ -27,6 +27,10 @@ class ParentController (@Autowired var parentService: ParentService) {
     fun selectParents () : List<Parent> {
         return parentService.selectParent();
     }
+    @GetMapping("getById/{idParent}")
+    fun getParentById(@PathVariable idParent: Int) : Parent{
+        return parentService.getById(idParent);
+    }
 
     @PutMapping("updateParent/{id}")
     fun updateParent (@PathVariable id:Int, @RequestBody parent: Parent) : Parent {

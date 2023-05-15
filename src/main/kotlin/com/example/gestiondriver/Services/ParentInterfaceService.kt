@@ -9,4 +9,5 @@ interface ParentInterfaceService {
     fun deleteParent(id: Int):String
     fun selectParent() : List<Parent>
     fun affectChildToParent(idParent : Int , idChild : Int);
+    fun getById(idParent :  Int) : Parent;
 }

@@ -1,5 +1,6 @@
 package com.example.gestiondriver.Controller
 
+import com.example.gestiondriver.Model.Co_Driver
 import com.example.gestiondriver.Model.Driver
 import com.example.gestiondriver.Services.DriverInterface
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin(origins = ["http://localhost:3000"])
+@CrossOrigin
 class DriverController (@Autowired val driverService: DriverInterface){
     @PostMapping("createDriver")
     public fun CreateDriver(@RequestBody driver:Driver) : Driver{
@@ -38,7 +39,9 @@ class DriverController (@Autowired val driverService: DriverInterface){
         return driverService.ReadSingleDriver(id);
     }
     @GetMapping("driver/code/{code}")
-    public fun getDriverByCode(@PathVariable code: String): Driver {
-        return driverService.getDriverByCode(code)
+    fun getByCode(@PathVariable code :String) : Int? {
+        if(driverService.getDriverByCode(code).dtype.equals("Driver"))
+            return driverService.getDriverByCode(code).id;
+        return null;
     }
 }

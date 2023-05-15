@@ -46,7 +46,6 @@ class DriverService (@Autowired val driverRepository: DriverRepository) : Driver
     }
 
     override fun getDriverByCode(code: String): Driver {
-        println("Driver : "+driverRepository.getByCode(code).firstname)
         return driverRepository.getByCode(code)
     }
 }
